@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Portfolieth",
+    "version": "1.0.0",
+    "description": "Lightweight multifunctional Ethereum address viewer",
+
+    "permissions": [
+    "storage",
+    "tabs"     
+    ],
+
+    "browser_action": {
+    "default_icon": "/images/logo.png",
+    "default_popup": "index.html"
+    },
+
+    "content_scripts": [
+        {
+      "matches": [ "http://*/*", "https://*/*"
+            ],
+            "js": [
+                "/js/domainblacklist.js"
+            ]
+        }
+    ],
+    "icons": {
+    "16": "images/logo16.png",
+    "48": "images/logo48.png",
+    "128": "images/logo128.png"
+    },
+
+      "background": {
+        "scripts": ["js/background.js"]
+    }
+}
