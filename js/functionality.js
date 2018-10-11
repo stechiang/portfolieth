@@ -129,6 +129,7 @@ window.addEventListener("load", function() {
     });
 });
 
+// this can cause failure in http
 
 function createTable(fromSearch) {
     portfolioValue = 0.0;
