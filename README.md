@@ -1,6 +1,8 @@
 # Portfolieth
 
-Currently in Alpha (pending approval from API providers), Portfolieth is a free, open-source, lightweight chrome extension that displays an Ethereum address in the context of a cryptocurrency investment portfolio.
+_currently in Beta_
+
+Portfolieth is a free, open-source, lightweight chrome extension that displays an Ethereum address in the context of a cryptocurrency investment portfolio.
 
 ## Why?
 
