@@ -1,15 +1,15 @@
-var addressData;
-var ethPrice;
-var eth24;
-var eth7;
 var addressBook;
-var addressChoices = [""];
-var addressInput;
-var toHide;
+var eth24;
 var ethJson;
-var portfolioValue = 0.0;
 var addrex;
+var addressInput;
+var addressData;
+var addressChoices = [""];
+var ethPrice;
+var eth7;
+var portfolioValue = 0.0;
 var fromSearch;
+var toHide;
 
 function clearDom() {
 
@@ -82,7 +82,6 @@ function sendData(fromSearch) {
         alert('Oops! API error retrieving token data.');
     });
 
-    addressInput = document.getElementById("addressRequest").value;
     document.getElementById("loadingBox").removeAttribute("hidden");
     var urlConcat = "https:api.ethplorer.io/getAddressInfo/" + addressInput + "?apiKey=freekey";
     XHR.open("POST", urlConcat);
@@ -115,8 +114,18 @@ window.addEventListener("load", function() {
     getEthPrice();
     var form = document.getElementById("myForm");
     form.addEventListener("submit", function(event) {
-        fromSearch = true;
-        mainProcess(fromSearch);
+
+        addressInput = document.getElementById("addressRequest").value;
+        addressInput = addressInput.replace(/\s/g,'');
+
+        if (!/^(0x)?[0-9a-f]{40}$/i.test(addressInput)) {
+            // check if it has the basic requirements of an address
+            alert("this is an invalid Ethereum address. Please enter a valid Ethereum address.");
+        } 
+        else {
+            fromSearch = true;
+            mainProcess(fromSearch);
+        }
     });
 });
 
