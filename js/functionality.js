@@ -445,6 +445,8 @@ function createTable(fromSearch) {
 
     }
 
+// below needs to be fixed for 1.0.2
+
     const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
     const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
@@ -458,3 +460,5 @@ function createTable(fromSearch) {
             .forEach(tr => table.appendChild(tr));
     })));
 }
+
+// beta pointed out this needs to occur before table DOM is loaded
