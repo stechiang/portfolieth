@@ -52,24 +52,24 @@ function decimalPlacer(num) {
 
 }
 
-function eightDecimalPlacer(num) {
-
-    num = parseFloat(num).toFixed(8);
-    return num;
-
-}
-
-function threeDecimalPlacer(num) {
-    num = parseFloat(num).toFixed(3);
-    return num;
-}
-
 function truncate(string, limit) {
     if (string.length > limit)
         return string.substring(0, limit) + '...';
     else
         return string;
 };
+
+function threeDecimalPlacer(num) {
+    num = parseFloat(num).toFixed(3);
+    return num;
+}
+
+function eightDecimalPlacer(num) {
+
+    num = parseFloat(num).toFixed(8);
+    return num;
+
+}
 
 function sendData(fromSearch) {
     var XHR = new XMLHttpRequest();
