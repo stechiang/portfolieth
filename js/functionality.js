@@ -89,26 +89,7 @@ function sendData(fromSearch) {
     XHR.send();
 }
 
-function getEthPrice() {
 
-    var XHR = new XMLHttpRequest();
-    XHR.addEventListener("load", function(event) {
-        ethJson = event.target.responseText;
-        ethPrice = JSON.parse(ethJson).data.quotes.USD.price;
-        eth24 = JSON.parse(ethJson).data.quotes.USD.percent_change_24h;
-        eth7 = JSON.parse(ethJson).data.quotes.USD.percent_change_7d;
-
-    });
-
-    XHR.addEventListener("error", function(event) {
-        alert('Oops! API error retrieving token data.');
-    });
-
-    XHR.open("GET", "https://api.coinmarketcap.com/v2/ticker/1027/");
-    XHR.send();
-
-
-}
 
 window.addEventListener("load", function() {
     getEthPrice();
@@ -128,6 +109,25 @@ window.addEventListener("load", function() {
         }
     });
 });
+
+function getEthPrice() {
+
+    var XHR = new XMLHttpRequest();
+    XHR.addEventListener("load", function(event) {
+        ethJson = event.target.responseText;
+        ethPrice = JSON.parse(ethJson).data.quotes.USD.price;
+        eth24 = JSON.parse(ethJson).data.quotes.USD.percent_change_24h;
+        eth7 = JSON.parse(ethJson).data.quotes.USD.percent_change_7d;
+
+    });
+
+    XHR.addEventListener("error", function(event) {
+        alert('Oops! API error retrieving token data.');
+    });
+    XHR.open("GET", "https://api.coinmarketcap.com/v2/ticker/1027/");
+    XHR.send();
+    // find an API with 30d ETH price diffmal
+}
 
 // this can cause failure in http
 
